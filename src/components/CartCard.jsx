@@ -6,7 +6,7 @@ function CartCard({ product }) {
   const { updateQuantity } = useContext(ContextData);
 
   return (
-    <div className="flex flex-row justify-around items-center bg-[#ffffff] rounded-2xl mb-0  max-lg:mb-4 max-sm:mb-4">
+    <div className="flex flex-row justify-around items-center bg-[#ffffff] rounded-2xl mb-4 max-lg:mb-4 max-sm:mb-4">
       <img
         src={product.thumbnail}
         alt={product.title}
