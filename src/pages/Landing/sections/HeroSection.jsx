@@ -1,6 +1,7 @@
 import React from "react";
 import shopping from "../../../assets/shopping.avif";
 import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
 
 function HeroSection() {
   return (
@@ -37,7 +38,7 @@ function HeroSection() {
             }}
             className="border border-[#000000] px-4 py-2 rounded-xl shadow-none hover:shadow-custom-lg w-min"
           >
-            Explore
+            <NavLink to="/products">Explore</NavLink>
           </motion.button>
         </div>
         <motion.div
