@@ -6,6 +6,8 @@ Your One-Stop Shop for Everything You Love. Explore Now!
 
 [ShopHive](https://shop-hive-iota.vercel.app/)
 
+[Document](https://docs.google.com/document/d/1QYmXFXKs1ap9av4ln6mLiF7mr2lN0EmZWe1zUPf_sMk/edit?usp=sharing)
+
 ## Installation
 
 Run the following command in terminal after downloading the project
