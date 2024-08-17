@@ -5,12 +5,8 @@ import { Rating } from "@mui/material";
 import { NavLink } from "react-router-dom";
 
 function ProductCard({ product }) {
-  const { cartdata, removeCartItems, getcarddata, setproductdetail } =
+  const { cartdata, removeCartItems, getcarddata, senddata } =
     useContext(ContextData);
-
-  const senddata = () => {
-    setproductdetail(product);
-  };
 
   return (
     <div className="flex flex-col justify-between items-between shadow-custom-lg bg-[#d3d3d3] rounded-2xl h-[400px] p-6">
@@ -24,7 +20,7 @@ function ProductCard({ product }) {
       </div>
       <div className="text-[20px] flex flex-col justify-between">
         <div>{product.title}</div>
-        <NavLink to="/detail" onClick={senddata}>
+        <NavLink to="/detail" onClick={() => senddata(product)}>
           <img src={info} alt="info" width={20} height={20} />
         </NavLink>
       </div>

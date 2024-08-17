@@ -13,6 +13,7 @@ function Context({ children }) {
   const [discountType, setdiscountType] = useState("");
   const [discountValue, setdiscountValue] = useState(0);
   const [buttonDisabled, setbuttonDisabled] = useState(false);
+  const [cartquantity, setcartquantity] = useState(0);
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
   const [confirmpassword, setconfirmpassword] = useState("");
@@ -47,6 +48,14 @@ function Context({ children }) {
     }
   }, []);
 
+  useEffect(() => {
+    let totalcartquantity = cartdata.reduce(
+      (total, item) => total + item.quantity,
+      0
+    );
+    setcartquantity(totalcartquantity);
+  }, [cartdata]);
+
   const getcarddata = (id, price) => {
     if (itemsinCart(id)) {
       toast.error("Item Already in Cart");
@@ -61,7 +70,7 @@ function Context({ children }) {
       setoldtotal(newTotal.toFixed(2));
       localStorage.setItem("total", newTotal.toFixed(2));
       toast("Item added to cart, Kindly increase the quantity in Cart", {
-        icon: "👏",
+        icon: "👍",
         style: {
           borderRadius: "10px",
           background: "#333",
@@ -151,7 +160,7 @@ function Context({ children }) {
       setbuttonDisabled(true);
     } else if (discountValue > 20) {
       toast("Maximum up to $10 or 10% off is available.", {
-        icon: "👏",
+        icon: "❗",
         style: {
           borderRadius: "10px",
           background: "#333",
@@ -160,7 +169,7 @@ function Context({ children }) {
       });
     } else if (discountValue <= 20 && discountType === "") {
       toast("Please select your Discount Type", {
-        icon: "👏",
+        icon: "❗",
         style: {
           borderRadius: "10px",
           background: "#333",
@@ -169,7 +178,7 @@ function Context({ children }) {
       });
     } else {
       toast("Please add more items to cart to awail discount", {
-        icon: "👏",
+        icon: "❗",
         style: {
           borderRadius: "10px",
           background: "#333",
@@ -177,6 +186,10 @@ function Context({ children }) {
         },
       });
     }
+  };
+
+  const senddata = (product) => {
+    setproductdetail(product);
   };
 
   const removeDiscount = () => {
@@ -191,9 +204,12 @@ function Context({ children }) {
     localStorage.removeItem("total");
     localStorage.removeItem("cartquantity");
     toast.success("Order Confirmed");
+    setdiscountValue(0);
+    setdiscountType("");
     setcartdata([]);
     settotal(0);
     setoldtotal(0);
+    setbuttonDisabled(false);
   };
 
   return (
@@ -214,9 +230,11 @@ function Context({ children }) {
         setdiscountValue,
         buttonDisabled,
         setbuttonDisabled,
+        cartquantity,
         removeDiscount,
         setoldtotal,
         orderconfirm,
+        senddata,
         getcarddata,
         username,
         setusername,

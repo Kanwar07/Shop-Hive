@@ -29,61 +29,67 @@ function CartTotal() {
       <div className="text-[#000000] text-[20px] font-bold">
         Cart Total: ${total}
       </div>
-      {buttonDisabled ? (
-        <div className="flex flex-col items-center">
-          <div className="mb-6 font-bold">Discount Applied!!!</div>
-          <button
-            onClick={removeDiscount}
-            className="flex justify-center border border-[#000000] text-[#ffffff] shadow-none hover:shadow-custom-lg bg-[#a78770] px-4 py-2 rounded-lg"
-          >
-            Remove
-          </button>
-        </div>
-      ) : (
-        <div className="flex flex-row justify-around gap-8 max-sm:flex-col">
-          <div className="flex-1 flex flex-col items-center gap-4">
-            <input
-              type="number"
-              min="0"
-              max="20"
-              className="p-2 border border-[#FF8213] bg-[#FFD7B5CC] rounded-xl w-full text-center"
-              value={discountValue}
-              onChange={(e) => setdiscountValue(e.target.value)}
-            />
-            <p>Maximun discount can be of 20 dollars or 20% off the amount</p>
-          </div>
-          <div className="flex flex-col gap-4 flex-1">
-            <div className="flex flex-row gap-4">
-              <div className="flex gap-2">
+      {cartdata.length !== 0 ? (
+        <div>
+          {buttonDisabled ? (
+            <div className="flex flex-col items-center">
+              <div className="mb-6 font-bold">Discount Applied!!!</div>
+              <button
+                onClick={removeDiscount}
+                className="flex justify-center border border-[#000000] text-[#ffffff] shadow-none hover:shadow-custom-lg bg-[#a78770] px-4 py-2 rounded-lg"
+              >
+                Remove
+              </button>
+            </div>
+          ) : (
+            <div className="flex flex-row justify-around gap-8 max-sm:flex-col">
+              <div className="flex-1 flex flex-col items-center gap-4">
                 <input
-                  type="radio"
-                  id="number"
-                  name="discount"
-                  value="number"
-                  onChange={(e) => setdiscountType(e.target.value)}
+                  type="number"
+                  min="0"
+                  max="20"
+                  className="p-2 border border-[#FF8213] bg-[#FFD7B5CC] rounded-xl w-full text-center"
+                  value={discountValue}
+                  onChange={(e) => setdiscountValue(e.target.value)}
                 />
-                <label htmlFor="number">Amount</label>
+                <p>
+                  Maximun discount can be of 20 dollars or 20% off the amount
+                </p>
               </div>
-              <div className="flex gap-2">
-                <input
-                  type="radio"
-                  id="percentage"
-                  name="discount"
-                  value="percentage"
-                  onChange={(e) => setdiscountType(e.target.value)}
-                />
-                <label htmlFor="percentage">Percentage</label>
+              <div className="flex flex-col gap-4 flex-1">
+                <div className="flex flex-row gap-4">
+                  <div className="flex gap-2">
+                    <input
+                      type="radio"
+                      id="number"
+                      name="discount"
+                      value="number"
+                      onChange={(e) => setdiscountType(e.target.value)}
+                    />
+                    <label htmlFor="number">Amount</label>
+                  </div>
+                  <div className="flex gap-2">
+                    <input
+                      type="radio"
+                      id="percentage"
+                      name="discount"
+                      value="percentage"
+                      onChange={(e) => setdiscountType(e.target.value)}
+                    />
+                    <label htmlFor="percentage">Percentage</label>
+                  </div>
+                </div>
+                <button
+                  onClick={discountedPrice}
+                  className="border border-[#000000] text-[#ffffff] shadow-none hover:shadow-custom-lg bg-[#a78770] px-4 py-2 rounded-lg"
+                >
+                  Apply Discount
+                </button>
               </div>
             </div>
-            <button
-              onClick={discountedPrice}
-              className="border border-[#000000] text-[#ffffff] shadow-none hover:shadow-custom-lg bg-[#a78770] px-4 py-2 rounded-lg"
-            >
-              Apply Discount
-            </button>
-          </div>
+          )}
         </div>
-      )}
+      ) : null}
       <NavLink to="/confirmation">
         <div className="flex justify-center items-center mx-10 my-2 text-[#000000] text-[24px]">
           {cartdata.length !== 0 ? (

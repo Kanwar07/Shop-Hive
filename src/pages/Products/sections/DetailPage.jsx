@@ -6,9 +6,11 @@ import { NavLink } from "react-router-dom";
 import { ContextData } from "../../../Context/Context";
 
 function DetailPage() {
-  const { productdetail } = useContext(ContextData);
+  const { cartdata, removeCartItems, getcarddata, productdetail } =
+    useContext(ContextData);
 
   const {
+    id,
     title,
     description,
     category,
@@ -118,6 +120,23 @@ function DetailPage() {
                   </div>
                 );
               })}
+            </div>
+            <div className="flex w-full justify-center my-6">
+              {cartdata.filter((data) => data.title === title).length > 0 ? (
+                <button
+                  className="text-[#000000] bg-[#bcbcbc] pt-2 pr-2 pb-2 pl-2 rounded-lg mr-2"
+                  onClick={() => removeCartItems(id)}
+                >
+                  REMOVE
+                </button>
+              ) : (
+                <button
+                  className="text-[#000000] bg-[#bcbcbc] pt-2 pr-2 pb-2 pl-2 rounded-lg mr-2"
+                  onClick={() => getcarddata(id, price)}
+                >
+                  ADD
+                </button>
+              )}
             </div>
           </div>
         </div>
