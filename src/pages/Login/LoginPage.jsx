@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 function LoginPage() {
   return (
     <>
-      <div className="bg-custom-gradient w-screen h-full flex flex-row justify-around gap-8 items-center py-6 px-[10%] max-lg:flex-row max-md:flex-col max-md:pt-10">
+      <div className="bg-custom-gradient w-screen h-full flex flex-row justify-around items-center py-6 px-[10%] max-lg:flex-row max-md:flex-col max-md:pt-10">
         <LoginCard />
         <motion.div
           initial={{ scale: 0, opacity: 1 }}

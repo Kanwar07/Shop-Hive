@@ -62,7 +62,7 @@ function DetailPage() {
               {description}{" "}
               <span className="text-[16px] font-bold">( {category} )</span>
             </div>
-            <div>$ {price}</div>
+            <div className="font-bold">$ {price}</div>
             <div className="flex flex-row gap-2">
               {tags.map((tag, index) => {
                 return (
