@@ -159,7 +159,7 @@ function Context({ children }) {
       }
       setbuttonDisabled(true);
     } else if (discountValue > 20) {
-      toast("Maximum up to $10 or 10% off is available.", {
+      toast("Maximum up to $20 or 20% off is available.", {
         icon: "❗",
         style: {
           borderRadius: "10px",
