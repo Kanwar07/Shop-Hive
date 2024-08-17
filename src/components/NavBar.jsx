@@ -19,12 +19,10 @@ function NavBar() {
       </div>
       <div className="flex flex-row justify-between gap-2 max-sm:gap-8">
         <div className="rounded-xl p-2 shadow-none transition ease-in-out duration-500 hover:shadow-2xl hover:bg-[#a78770]">
-          Products
+          <NavLink to="/products">Products</NavLink>
         </div>
-        <div className="relative">
-          <div className="rounded-xl p-2 shadow-none transition ease-in-out duration-500 hover:shadow-2xl hover:bg-[#a78770]">
-            Cart
-          </div>
+        <div className="rounded-xl p-2 shadow-none transition ease-in-out duration-500 hover:shadow-2xl hover:bg-[#a78770]">
+          <NavLink to="/cart">Cart</NavLink>
         </div>
       </div>
       <div className="flex flex-row justify-between gap-2 max-sm:gap-8">
