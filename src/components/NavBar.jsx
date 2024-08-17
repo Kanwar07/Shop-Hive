@@ -20,7 +20,7 @@ function NavBar() {
           <NavLink to="/">ShopHive</NavLink>
         </button>
       </div>
-      <div className="flex flex-row justify-between gap-2 max-sm:gap-8">
+      <div className="flex flex-row justify-between gap-2 max-sm:gap-16">
         <div className="rounded-xl p-2 shadow-none transition ease-in-out duration-500 hover:shadow-2xl hover:bg-[#a78770]">
           <NavLink to="/products">Products</NavLink>
         </div>
@@ -33,7 +33,7 @@ function NavBar() {
           </div>
         </div>
       </div>
-      <div className="flex flex-row justify-between gap-2 max-sm:gap-8">
+      <div className="flex flex-row justify-between gap-2 max-sm:gap-16">
         <div className="rounded-xl p-2 shadow-none transition ease-in-out duration-500 hover:shadow-2xl hover:bg-[#a78770]">
           <NavLink to="/register">Register</NavLink>
         </div>

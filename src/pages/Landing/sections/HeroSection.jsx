@@ -53,7 +53,7 @@ function HeroSection() {
           <img
             src={shopping}
             alt="shopping"
-            className="rounded-xl shadow-custom-lg"
+            className="rounded-xl transition ease-in-out delay-50 duration-500 shadow-xl hover:scale-110 hover:bg-black hover:shadow-custom-lg"
           />
         </motion.div>
       </div>
