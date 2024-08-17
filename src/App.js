@@ -13,6 +13,8 @@ import ProductsPage from "./pages/Products/ProductsPage";
 import Context from "./Context/Context";
 import CartPage from "./pages/Cart/CartPage";
 import ConfirmationPage from "./pages/Confirmation/ConfirmationPage";
+import LoginPage from "./pages/Login/LoginPage";
+import RegisterPage from "./pages/Register/RegisterPage";
 
 function App() {
   const router = createBrowserRouter(
@@ -23,6 +25,8 @@ function App() {
         <Route path="detail" element={<DetailPage />} />
         <Route path="cart" element={<CartPage />} />
         <Route path="confirmation" element={<ConfirmationPage />} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="register" element={<RegisterPage />} />
       </Route>
     )
   );

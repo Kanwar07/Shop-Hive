@@ -27,10 +27,10 @@ function NavBar() {
       </div>
       <div className="flex flex-row justify-between gap-2 max-sm:gap-8">
         <div className="rounded-xl p-2 shadow-none transition ease-in-out duration-500 hover:shadow-2xl hover:bg-[#a78770]">
-          Register
+          <NavLink to="/register">Register</NavLink>
         </div>
         <div className="rounded-xl p-2 shadow-none transition ease-in-out duration-500 hover:shadow-2xl hover:bg-[#a78770]">
-          Login
+          <NavLink to="/login">Login</NavLink>
         </div>
       </div>
     </nav>

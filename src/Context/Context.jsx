@@ -6,13 +6,16 @@ export const ContextData = createContext();
 
 function Context({ children }) {
   const [products, setproducts] = useState([]);
+  const [productdetail, setproductdetail] = useState({});
   const [cartdata, setcartdata] = useState([]);
   const [total, settotal] = useState([]);
   const [oldtotal, setoldtotal] = useState(0);
   const [discountType, setdiscountType] = useState("");
   const [discountValue, setdiscountValue] = useState(0);
   const [buttonDisabled, setbuttonDisabled] = useState(false);
-  const [productdetail, setproductdetail] = useState({});
+  const [username, setusername] = useState("");
+  const [password, setpassword] = useState("");
+  const [confirmpassword, setconfirmpassword] = useState("");
 
   useEffect(() => {
     const fetchdata = async () => {
@@ -197,6 +200,8 @@ function Context({ children }) {
     <ContextData.Provider
       value={{
         products,
+        productdetail,
+        setproductdetail,
         cartdata,
         setcartdata,
         total,
@@ -213,8 +218,12 @@ function Context({ children }) {
         setoldtotal,
         orderconfirm,
         getcarddata,
-        productdetail,
-        setproductdetail,
+        username,
+        setusername,
+        password,
+        setpassword,
+        confirmpassword,
+        setconfirmpassword,
       }}
     >
       {children}
