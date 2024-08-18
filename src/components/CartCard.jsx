@@ -6,11 +6,11 @@ function CartCard({ product }) {
   const { updateQuantity } = useContext(ContextData);
 
   return (
-    <div className="flex flex-row justify-around items-center bg-[#ffffff] rounded-2xl mb-4 max-lg:mb-4 max-sm:mb-4">
+    <div className="flex flex-row justify-start items-center bg-[#ffffff] rounded-2xl mb-4 max-lg:mb-4 max-sm:mb-4">
       <img
         src={product.thumbnail}
         alt={product.title}
-        className="mr-4 size-20"
+        className="mr-20 size-20 max-md:mr-4"
       />
       <div className="flex flex-col items-start">
         <div className="font-bold py-4 px-2">{product.title}</div>

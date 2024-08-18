@@ -17,6 +17,7 @@ function Context({ children }) {
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
   const [confirmpassword, setconfirmpassword] = useState("");
+  const [popularproduct, setpopularproduct] = useState([]);
 
   useEffect(() => {
     const fetchdata = async () => {
@@ -55,6 +56,15 @@ function Context({ children }) {
     );
     setcartquantity(totalcartquantity);
   }, [cartdata]);
+
+  useEffect(() => {
+    const mostorderedproduct = () => {
+      let productlist = products.filter((item) => item.rating > 4.5);
+      setpopularproduct(productlist);
+    };
+
+    mostorderedproduct();
+  }, [products]);
 
   const getcarddata = (id, price) => {
     if (itemsinCart(id)) {
@@ -125,7 +135,12 @@ function Context({ children }) {
   };
 
   const discountedPrice = () => {
-    if (total >= 20 && discountValue <= 20 && discountType !== "") {
+    if (
+      total >= 20 &&
+      discountValue <= 20 &&
+      discountValue >= 0 &&
+      discountType !== ""
+    ) {
       if (discountValue === 0) {
         toast("Discount Apllied but of 0 Amount", {
           icon: "👏",
@@ -167,7 +182,23 @@ function Context({ children }) {
           color: "#fff",
         },
       });
-    } else if (discountValue <= 20 && discountType === "") {
+    } else if (discountValue < 0) {
+      toast(
+        `Negative amount, ${discountValue} will be added to your total amount, Thank You`,
+        {
+          icon: "❗",
+          style: {
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
+          },
+        }
+      );
+    } else if (
+      discountValue <= 20 &&
+      discountValue >= 0 &&
+      discountType === ""
+    ) {
       toast("Please select your Discount Type", {
         icon: "❗",
         style: {
@@ -218,6 +249,7 @@ function Context({ children }) {
         products,
         productdetail,
         setproductdetail,
+        popularproduct,
         cartdata,
         setcartdata,
         total,
